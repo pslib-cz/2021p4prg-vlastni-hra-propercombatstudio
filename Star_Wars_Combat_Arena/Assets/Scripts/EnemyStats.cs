@@ -18,7 +18,12 @@ public class EnemyStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if ((SceneManager.GetActiveScene().name == "FirstLevel" && stamina < 100) || 
+            (SceneManager.GetActiveScene().name == "SecondLevel" && stamina < 150) || 
+            (SceneManager.GetActiveScene().name == "ThirdLevel" && stamina < 200)) 
+        {
+            stamina++;
+        }
     }
 
     private void GetDamage (float poskozeni) 

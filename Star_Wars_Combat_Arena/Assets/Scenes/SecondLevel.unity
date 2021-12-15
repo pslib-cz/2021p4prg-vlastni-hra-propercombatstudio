@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1905247134}
-  poskozeni: 20
+  poskozeni: 40
 --- !u!114 &724979739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a120ce00d5c80324fbc1bc981fd4eb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zivoty: 200
-  stamina: 100
+  zivoty: 300
+  stamina: 150
 --- !u!114 &724979740
 MonoBehaviour:
   m_ObjectHideFlags: 0
