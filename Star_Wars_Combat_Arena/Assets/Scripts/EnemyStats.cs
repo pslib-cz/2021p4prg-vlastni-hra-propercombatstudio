@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -25,7 +26,21 @@ public class EnemyStats : MonoBehaviour
         zivoty -= poskozeni;
         if (zivoty <= 0) 
         {
-            Destroy(transform.gameObject);
+            switch (SceneManager.GetActiveScene().name) 
+            {
+                case "FirstLevel":
+                    SceneManager.LoadScene("SecondLevel");
+                    break;
+                case "SecondLevel":
+                    SceneManager.LoadScene("ThirdLevel");
+                    break;
+                case "ThirdLevel":
+                    Application.Quit();
+                    break;
+                default:
+                    SceneManager.LoadScene("FirstLevel");
+                    break;
+            }
         }
     }
 
