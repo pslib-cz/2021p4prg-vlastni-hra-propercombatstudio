@@ -23,10 +23,14 @@ public class EnemyDeath : StateMachineBehaviour
         switch (SceneManager.GetActiveScene().name) 
         {
             case "FirstLevel":
-                SceneManager.LoadSceneAsync("SecondLevel");
+                Time.timeScale = 1f;
+                PauseMenu.GameIsPaused = false;
+                SceneManager.LoadScene("SecondLevel");
                 break;
             case "SecondLevel":
-                SceneManager.LoadSceneAsync("ThirdLevel");
+                Time.timeScale = 1f;
+                PauseMenu.GameIsPaused = false;
+                SceneManager.LoadScene("ThirdLevel");
                 break;
             case "ThirdLevel":
                 UnityEditor.EditorApplication.isPlaying = false;

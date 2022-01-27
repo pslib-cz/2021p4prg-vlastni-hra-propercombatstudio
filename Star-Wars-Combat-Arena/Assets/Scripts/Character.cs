@@ -27,8 +27,8 @@ public class Character : MonoBehaviour
     public int healthLimit;
 
     private int counter = 1;
-    private static bool isAttacked = false;
-    private static bool isBlocked = false;
+    private bool isAttacked = false;
+    private bool isBlocked = false;
     private bool isAttacking = false;
     private bool isBlocking = false;
 
@@ -151,7 +151,7 @@ public class Character : MonoBehaviour
         return animator.GetBool("isDamaged");
     }
 
-     public bool GetDeadStatus() 
+    public bool GetDeadStatus() 
     {
         return animator.GetBool("isDead");
     }
@@ -179,6 +179,11 @@ public class Character : MonoBehaviour
     public int GetCurrentStamina() 
     {
         return stamina;
+    }
+
+    public int GetCurrentHealth() 
+    {
+        return health;
     }
 
     private void ReceiveDamage () 

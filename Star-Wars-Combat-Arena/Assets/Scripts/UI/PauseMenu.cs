@@ -107,7 +107,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadSceneAsync("FirstLevel");
+        SceneManager.LoadScene("FirstLevel");
     }
 
     public void ChangeMusic() 

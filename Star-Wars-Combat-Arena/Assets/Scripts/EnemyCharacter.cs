@@ -15,8 +15,8 @@ public class EnemyCharacter : MonoBehaviour
 
     private bool isAttacking = false;
     private bool isBlocking = false;
-    private static bool isAttacked = false;
-    private static bool isBlocked = false;
+    private bool isAttacked = false;
+    private bool isBlocked = false;
 
     public int damage;
     public int regenSpeed;
@@ -135,8 +135,12 @@ public class EnemyCharacter : MonoBehaviour
                 {
                     FaceTarget();
 
-                    if ((float) player.GetComponent<Character>().GetCurrentStamina()
-                    / ((float) player.GetComponent<Character>().staminaLimit / 100) <= 10 && stamina >= attackPenalty && isBlocking == false) 
+                    if (((float) player.GetComponent<Character>().GetCurrentStamina()
+                    / ((float) player.GetComponent<Character>().staminaLimit / 100) <= 10 || 
+                    (float) player.GetComponent<Character>().GetCurrentHealth()
+                    / ((float) player.GetComponent<Character>().healthLimit / 100) <= 15 ||
+                    (float) health / ((float) healthLimit / 100) <= 20) 
+                    && stamina >= attackPenalty && isBlocking == false) 
                     {
                         Attack();
                     }
@@ -204,7 +208,7 @@ public class EnemyCharacter : MonoBehaviour
         isBlocking = false;
     }
 
-     public void SetToNoBlocked () 
+    public void SetToNoBlocked () 
     {
         isBlocked = false;
     }
