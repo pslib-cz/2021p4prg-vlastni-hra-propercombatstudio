@@ -15,8 +15,8 @@ public class EnemyCharacter : MonoBehaviour
 
     private bool isAttacking = false;
     private bool isBlocking = false;
-    private bool isAttacked = false;
-    private bool isBlocked = false;
+    private static bool isAttacked = false;
+    private static bool isBlocked = false;
 
     public int damage;
     public int regenSpeed;
@@ -85,11 +85,15 @@ public class EnemyCharacter : MonoBehaviour
 
         if (PauseMenu.GameIsPaused == false) 
         {
-            if (counter == regenSpeed) 
+            if (counter == 35) 
             {
                 if (stamina < staminaLimit) 
                 {
-                    stamina++;
+                    stamina += regenSpeed;
+                    if (stamina > staminaLimit) 
+                    {
+                        stamina = staminaLimit;
+                    }
                     staminaBar.SetStamina(stamina);
                 }
 
@@ -243,7 +247,7 @@ public class EnemyCharacter : MonoBehaviour
     {
         isBlocked = true;
 
-        stamina -= player.GetComponent<Character>().damage;
+        stamina -= player.GetComponent<Character>().attackPenalty;
         if (stamina <= 0) 
         {
             stamina = 0;
