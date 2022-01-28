@@ -25,7 +25,7 @@ public class EnemyCharacter : MonoBehaviour
     public int attackPenalty;
     public int staminaLimit;
     public int healthLimit;
-    private int counter = 1;
+    private float lastRegen;
 
     private float blockingTime;
     private float timeToStop;
@@ -85,22 +85,19 @@ public class EnemyCharacter : MonoBehaviour
 
         if (PauseMenu.GameIsPaused == false) 
         {
-            if (counter == 35) 
+
+             if (Time.time - lastRegen > 6f && stamina < staminaLimit) 
             {
-                if (stamina < staminaLimit) 
+                
+                stamina += regenSpeed;
+                lastRegen = Time.time;
+                if (stamina > staminaLimit) 
                 {
-                    stamina += regenSpeed;
-                    if (stamina > staminaLimit) 
-                    {
-                        stamina = staminaLimit;
-                    }
-                    staminaBar.SetStamina(stamina);
+                    stamina = staminaLimit;
                 }
 
-                counter = 1;
+                staminaBar.SetStamina(stamina);
             }
-
-            counter++;
 
             if (agent.velocity.magnitude > 0) 
             {

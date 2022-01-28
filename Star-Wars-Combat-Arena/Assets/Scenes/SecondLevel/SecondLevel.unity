@@ -2585,7 +2585,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838787956}
-  m_LocalRotation: {x: 0.010713745, y: 0.00002413034, z: -0.00000025854115, w: 0.9999426}
+  m_LocalRotation: {x: 0.010713746, y: 0.000024128458, z: -0.000000258521, w: 0.9999426}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5181,7 +5181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 800
   damage: 40
-  regenSpeed: 166
+  regenSpeed: 120
   attackPenalty: 65
   staminaLimit: 500
   healthLimit: 550

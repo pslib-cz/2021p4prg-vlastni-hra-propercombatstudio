@@ -25,8 +25,9 @@ public class Character : MonoBehaviour
     private int stamina;
     public int staminaLimit;
     public int healthLimit;
+    private float lastRegen;
 
-    private int counter = 1;
+
     private bool isAttacked = false;
     private bool isBlocked = false;
     private bool isAttacking = false;
@@ -95,6 +96,7 @@ public class Character : MonoBehaviour
         timeWhenDisappear = Time.time + timeToAppear;           
     }
 
+
     // Update is called once per frame
     void Update() 
     {
@@ -106,18 +108,17 @@ public class Character : MonoBehaviour
 
         if (PauseMenu.GameIsPaused == false) 
         {
-            if (counter == 35) 
+             if (Time.time - lastRegen > 6f && stamina < staminaLimit) 
             {
-                if (stamina < staminaLimit) 
+                
+                stamina += regenSpeed;
+                lastRegen = Time.time;
+                if (stamina > staminaLimit) 
                 {
-                    stamina += regenSpeed;
-                    if (stamina > staminaLimit) 
-                    {
-                        stamina = staminaLimit;
-                    }
-                    staminaBar.SetStamina(stamina);
+                    stamina = staminaLimit;
                 }
-                counter = 1;
+
+                staminaBar.SetStamina(stamina);
             }
 
             if (enemy.GetComponent<EnemyCharacter>().GetDamagedStatus() == false &&
@@ -126,8 +127,6 @@ public class Character : MonoBehaviour
             {
                 Move();        
             }
-
-            counter++;
         }
     }
 
