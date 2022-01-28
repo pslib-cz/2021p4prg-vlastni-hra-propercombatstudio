@@ -100,6 +100,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
+        
         if ((sceneHeader.text == "Round 1" || sceneHeader.text == "Round 2"
          || sceneHeader.text == "Round 3") && Time.time >= timeWhenDisappear)
         {
